@@ -1,0 +1,9 @@
+.secrets.toml
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Configs del sistema (por si acaso)
+.DS_Store
+.env
