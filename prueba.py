@@ -1,1 +1,0 @@
-esto = "esto es una prueba"
