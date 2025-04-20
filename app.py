@@ -52,7 +52,7 @@ if logo and csv_file:
 
         # Sustituir variables
         for clave, valor in datos.items():
-            plantilla = plantilla.replace("{" + clave + "}", valor)
+            plantilla = plantilla.replace("{" + str(clave) + "}", str(valor))
         
         pdf_output = "contrato_1"
 
