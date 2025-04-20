@@ -8,7 +8,7 @@ st.title("🏠 AutoFinka")
 st.subheader("Generador automático de contratos inmobiliarios")
 
 # Subida de logo y CSV
-logo = "logo"
+logo = 0
 if not logo:
     st.markdown("### 📤 Sube el logo de tu inmobiliaria")
     logo = st.file_uploader("Logo", type=["png", "jpg"])
