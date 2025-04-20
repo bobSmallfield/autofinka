@@ -35,17 +35,36 @@ if logo and csv_file:
   # Asegúrate de que la columna se llama 'nombre'
 
     if st.button("📄 Generar contrato PDF"):
+        with open("plantillas/contrato_base.txt", "r", encoding="utf-8") as file:
+            plantilla = file.read()
+
+        # Datos dinámicos (los que vienen del form de Streamlit)
+        datos = {
+            "ciudad": "Madrid",
+            "fecha": fecha,
+            "nombre_cliente": nombre_cliente,
+            "dni_cliente": "12345678A",
+            "nombre_agente": "María Gómez",
+            "direccion": direccion,
+            "precio": "250000",
+            "duracion": "6"
+        }
+
+        # Sustituir variables
+        for clave, valor in datos.items():
+            plantilla = plantilla.replace("{" + clave + "}", valor)
+        
+        pdf_output = "contrato_1"
+
         pdf = FPDF()
         pdf.add_page()
         pdf.set_font("Arial", size=12)
-        pdf.cell(200, 10, txt="Contrato de servicio inmobiliario", ln=True, align="C")
-        pdf.ln(10)
-        pdf.cell(200, 10, txt=f"Fecha: {fecha.strftime('%d/%m/%Y')}", ln=True)
-        pdf.cell(200, 10, txt=f"Cliente: {nombre_cliente}", ln=True)
-        pdf.cell(200, 10, txt=f"Dirección de la propiedad: {direccion}", ln=True)
-        pdf.cell(200, 10, txt=f"Agente asignado: {agente}", ln=True)
 
-        pdf_output = "contrato_autofinka.pdf"
+        # Añadir línea a línea
+        for linea in plantilla.splitlines():
+            pdf.multi_cell(0, 10, linea)
+            pdf.ln(2)  # Espacio entre párrafos
+
         pdf.output(pdf_output)
 
         with open(pdf_output, "rb") as f:

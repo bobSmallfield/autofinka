@@ -1,0 +1,17 @@
+CONTRATO DE INTERMEDIACIÓN INMOBILIARIA
+
+En la ciudad de {ciudad}, a {fecha}
+
+REUNIDOS
+
+De una parte, el cliente {nombre_cliente}, con DNI {dni_cliente}.
+
+De otra parte, el agente inmobiliario {nombre_agente}, actuando en representación de AutoFinka.
+
+Ambas partes acuerdan lo siguiente:
+
+1. El agente se compromete a buscar un comprador para el inmueble ubicado en {direccion}.
+2. El precio pactado será de {precio} euros.
+3. El contrato tendrá una duración de {duracion} meses.
+
+Firmado por ambas partes.
