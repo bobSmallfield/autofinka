@@ -11,7 +11,7 @@ st.subheader("Generador automático de contratos inmobiliarios")
 logo = "logo"
 if not logo:
     st.markdown("### 📤 Sube el logo de tu inmobiliaria")
-logo = st.file_uploader("Logo", type=["png", "jpg"])
+    logo = st.file_uploader("Logo", type=["png", "jpg"])
 
 st.markdown("### 📤 Sube la lista de agentes (CSV)")
 csv_file = st.file_uploader("CSV de agentes", type=["csv"])
