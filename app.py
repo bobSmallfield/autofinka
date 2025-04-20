@@ -8,7 +8,9 @@ st.title("🏠 AutoFinka")
 st.subheader("Generador automático de contratos inmobiliarios")
 
 # Subida de logo y CSV
-st.markdown("### 📤 Sube el logo de tu inmobiliaria")
+logo = "logo"
+if not logo:
+    st.markdown("### 📤 Sube el logo de tu inmobiliaria")
 logo = st.file_uploader("Logo", type=["png", "jpg"])
 
 st.markdown("### 📤 Sube la lista de agentes (CSV)")
@@ -23,7 +25,14 @@ if logo and csv_file:
     nombre_cliente = st.text_input("Nombre del cliente")
     direccion = st.text_input("Dirección de la propiedad")
     fecha = st.date_input("Fecha del contrato", value=datetime.today())
-    agente = st.selectbox("Selecciona agente responsable", df["nombre"])  # Asegúrate de que la columna se llama 'nombre'
+
+    if "nombre" in df.columns or "Nombre" in df.columns:
+        col = "nombre" if "nombre" in df.columns else "Nombre"
+        agente = st.selectbox("Selecciona agente responsable", df[col])
+    else:
+        st.error("⚠️ No se encontró una columna llamada 'nombre' o 'Nombre' en el CSV.")
+
+  # Asegúrate de que la columna se llama 'nombre'
 
     if st.button("📄 Generar contrato PDF"):
         pdf = FPDF()
