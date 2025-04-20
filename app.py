@@ -54,7 +54,7 @@ if logo and csv_file:
         for clave, valor in datos.items():
             plantilla = plantilla.replace("{" + str(clave) + "}", str(valor))
         
-        pdf_output = "contrato_1"
+        pdf_output = "contrato_1.pdf"
 
         pdf = FPDF()
         pdf.add_page()
